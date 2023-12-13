@@ -26,6 +26,7 @@ pipeline {
         }
         stage("Build image") {
             steps{
+                sh " cd /var/lib/jenkins/workspace/servlet/ "
                 sh " docker build -t ${DOCKER_USR}/${APP_NAME}:${IMAGE_TAG} . "
             }
         }
