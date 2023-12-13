@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     environment {
         APP_NAME = "servlet"
         RELEASE = "1.0.0"
@@ -8,7 +7,6 @@ pipeline {
         DOCKERHUB_CREDENTIALS = credentials('dockerhub')
         IMAGE_TAG = "${RELEASE}-${BUILD_NUMBER}"
     }
-
     stages {
         stage("git checkout") {
             steps {
@@ -41,6 +39,5 @@ pipeline {
                 sh 'docker push ${DOCKER_USR}/${APP_NAME}:${IMAGE_TAG}'
             }
         }
-
     }
 }
