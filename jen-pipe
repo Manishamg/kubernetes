@@ -21,7 +21,7 @@ pipeline {
         stage("Test") {
             steps {
                 sh "mvn test"
-                sh "ls /var/lib/jenkins/workspace/${JOB_NAME}/webapp/target/"
+                sh "ls /var/lib/jenkins/workspace/${JOB_NAME}/target/"
             }
         }
         stage("Build image") {
